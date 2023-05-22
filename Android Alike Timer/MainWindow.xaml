@@ -8,12 +8,12 @@
         mc:Ignorable="d" 
         WindowStartupLocation="CenterScreen" WindowStyle="None"
         AllowsTransparency="True" Background="Transparent"
-        Height="750" Width="450">
+        Height="700" Width="450">
     <Grid Background="#212529">
         <Grid.RowDefinitions>
             <RowDefinition Height="70"/>
-            <RowDefinition Height="3*"/>
-            <RowDefinition/>
+            <RowDefinition Height="400"/>
+            <RowDefinition Height="140"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         
@@ -58,7 +58,7 @@
                 </lvc:Gauge>
                 <Button Grid.Row="2" Grid.Column="1" Visibility="Hidden"></Button>
                 <Button Grid.Row="3" Grid.Column="1" Style="{StaticResource startButton}">
-                    <Icon:PackIconMaterial Kind="Play" Foreground="#212529"/>
+                    <Icon:PackIconMaterial Kind="Play" Foreground="#212529" HorizontalAlignment="Center"/>
                 </Button>
             </Grid>
         </Border>
@@ -66,5 +66,38 @@
         <Button Grid.Row="2" Grid.ColumnSpan="2" Style="{StaticResource setButton}">
             <Icon:PackIconMaterial Kind="Plus" Foreground="#212529"/>
         </Button>
+        <Grid Grid.Row="4" Background="#282d33">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1.5*"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Button Grid.Row="0" Grid.Column="0" Style="{StaticResource bottomButton}">
+                <Icon:PackIconMaterial Kind="Alarm" Style="{StaticResource bottomButtonIcon}"/>
+            </Button>
+            <Button Grid.Row="0" Grid.Column="1" Style="{StaticResource bottomButton}">
+                <Icon:PackIconMaterial Kind="ClockOutline" Style="{StaticResource bottomButtonIcon}"/>
+            </Button>
+            <Button Grid.Row="0" Grid.Column="2" Style="{StaticResource bottomButton}">
+                <Icon:PackIconMaterial Kind="TimerSand" Style="{StaticResource bottomButtonIcon}"/>
+            </Button>
+            <Button Grid.Row="0" Grid.Column="3" Style="{StaticResource bottomButton}">
+                <Icon:PackIconMaterial Kind="ClockTimeTwelveOutline" Style="{StaticResource bottomButtonIcon}"/>
+            </Button>
+            <Button Grid.Row="0" Grid.Column="4" Style="{StaticResource bottomButton}">
+                <Icon:PackIconMaterial Kind="Bed" Style="{StaticResource bottomButtonIcon}"/>
+            </Button>
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="Wecker" Style="{StaticResource bottomButtonTextBox}"/>
+            <TextBlock Grid.Row="1" Grid.Column="1" Text="Uhr" Style="{StaticResource bottomButtonTextBox}"/>
+            <TextBlock Grid.Row="1" Grid.Column="2" Text="Timer" Style="{StaticResource bottomButtonTextBox}"/>
+            <TextBlock Grid.Row="1" Grid.Column="3" Text="Stoppuhr" Style="{StaticResource bottomButtonTextBox}"/>
+            <TextBlock Grid.Row="1" Grid.Column="4" Text="Schlafen..." Style="{StaticResource bottomButtonTextBox}"/>
+        </Grid>
     </Grid>
 </Window>

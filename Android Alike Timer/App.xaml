@@ -80,14 +80,14 @@
             <Setter Property="Background" Value="#85ffc7"/>
             <Setter Property="Foreground" Value="#fcfafa"/>
             <Setter Property="FontSize" Value="14"/>
-            <Setter Property="Width" Value="120"/>
+            <Setter Property="Width" Value="110"/>
             <Setter Property="Margin" Value="20 0 0 20"/>
             <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}" CornerRadius="38">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="35">
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Border>
                     </ControlTemplate>
@@ -114,5 +114,35 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
+        <Style x:Key="bottomButton" TargetType="Button">  
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{Binding Path=Grid, RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Grid}}}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="bottomButtonIcon" TargetType="Icon:PackIconMaterial">
+            <Setter Property="Height" Value="22"/>
+            <Setter Property="Width" Value="22"/>
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Foreground" Value="#fcfafa" />
+        </Style>
+
+        <Style x:Key="bottomButtonTextBox" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Foreground" Value="#fcfafa"/>
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Top" />
+        </Style>
+
     </Application.Resources>
 </Application>
