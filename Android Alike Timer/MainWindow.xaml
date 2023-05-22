@@ -3,10 +3,68 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Android_Alike_Timer"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
+        xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+        mc:Ignorable="d" 
+        WindowStartupLocation="CenterScreen" WindowStyle="None"
+        AllowsTransparency="True" Background="Transparent"
+        Height="750" Width="450">
+    <Grid Background="#212529">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        
+        <!-- Top Section  -->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Timer" Style="{StaticResource appTitle}"/>
+            <Button Grid.Column="1" Style="{StaticResource menuButton}"  >
+                <Icon:PackIconMaterial Kind="DotsVertical" Style="{StaticResource menuButtonIcon}" />
+            </Button>            
+        </Grid>
+        
+        <!-- Timer Section -->
+        <Border Grid.Row="1" Background="#282d33" Margin="20" CornerRadius="20">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.3*"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="Timer: 45 s" Style="{StaticResource timerText}"/>
+                <Button Grid.Column="1" Margin="20 10" Style="{StaticResource timerButton}">
+                    <Icon:PackIconMaterial Kind="Close" Style="{StaticResource timerButtonIcon}"/>
+                </Button>
+                <lvc:Gauge Grid.Row="1" Grid.RowSpan="3" VerticalAlignment="Stretch"
+                           InnerRadius="110" Uses360Mode="True"
+                            From="0" To="100" Value="70" Foreground="#fcfafa">
+                    <lvc:Gauge.GaugeRenderTransform>
+                        <TransformGroup>
+                            <RotateTransform Angle="90"></RotateTransform>
+                            <ScaleTransform ScaleX="1"></ScaleTransform>
+                        </TransformGroup>
+                    </lvc:Gauge.GaugeRenderTransform>
+                </lvc:Gauge>
+                <Button Grid.Row="2" Grid.Column="1" Visibility="Hidden"></Button>
+                <Button Grid.Row="3" Grid.Column="1" Style="{StaticResource startButton}">
+                    <Icon:PackIconMaterial Kind="Play" Foreground="#212529"/>
+                </Button>
+            </Grid>
+        </Border>
+        <!-- Set Timer -->
+        <Button Grid.Row="2" Grid.ColumnSpan="2" Style="{StaticResource setButton}">
+            <Icon:PackIconMaterial Kind="Plus" Foreground="#212529"/>
+        </Button>
     </Grid>
 </Window>
